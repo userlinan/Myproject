@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.galaxy.apus</groupId>
+    <artifactId>apus-aiops</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <artifactId>apus-insurance-component-modules</artifactId>
+  <version>4.0.0</version>
+  <packaging>pom</packaging>
+  <name>icp-modules</name>
+  <url>http://maven.apache.org</url><!-- 项目的地址 -->
+  <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+  <modules>
+  	<module>apus-eureka-m-service</module>
+  	<module>apus-eureka-s-service</module>
+  	<module>apus-config-service</module>
+  	<module>apus-apigateway-service</module>
+  	<module>apus-executor-service</module>
+  	<module>apus-job-admin</module>
+  	<module>apus-zipkin-service</module>
+  	<module>apus-demo-service</module>
+  </modules>
+</project>

@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.8.RELEASE</version>
+  </parent>
+  <groupId>com.galaxy.apus</groupId>
+  <artifactId>apus-aiops</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>${project.artifactId}</name>
+  <modules>
+  	<module>apus-common</module>
+  	<module>apus-insurance-component-modules</module>
+  	<!-- <module>apus-insurance-basic-modules</module>
+  	<module>apus-insurance-core-modules</module>
+  	<module>apus-insurance-extension-modules</module> -->
+  </modules>
+  <properties>
+  	<java.version>1.8</java.version>
+  </properties>
+  <dependencies>
+  	<!-- 公共jar生成Swagger Specification -->
+  	<dependency>
+  		<groupId>io.springfox</groupId>
+  		<artifactId>springfox-swagger-ui</artifactId>
+  		<version>2.5.0</version>
+  		<scope>compile</scope><!-- 该jar包的使用范围 -->
+  	</dependency>
+  	<dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger2</artifactId>
+		<version>2.5.0</version>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-openfeign</artifactId><!-- Spring Cloud框架提供了RestTemplate和FeignClient两个方式完成服务间调用 -->
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-netflix-hystrix</artifactId><!--断路器  -->
+	</dependency>
+	<!-- 当一个项目A依赖项目B，而项目B同时依赖项目C，如果项目A中因为各种原因不想引用项目C，在配置项目B的依赖时，可以排除对C的依赖 -->
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+		<exclusions>
+			<exclusion>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>	
+  </dependencies>
+  <!-- dependencyManagement元素。通过它元素来管理jar包的版本，让子项目中引用一个依赖而不用显示的列出版本号 -->
+  <dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-dependencies</artifactId>
+			<version>Finchley.SR2</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-dependencies</artifactId>
+			<version>2.0.8.RELEASE</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+  </dependencyManagement>
+	<build>
+		<plugins>
+			<!-- 选择JDK版本 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<!--保证密钥的正确性-->
+					<nonFilteredFileExtensions>    
+						<nonFilteredFileExtension>key</nonFilteredFileExtension>   
+						<nonFilteredFileExtension>pem</nonFilteredFileExtension>   
+						<nonFilteredFileExtension>pfx</nonFilteredFileExtension>    
+						<nonFilteredFileExtension>cer</nonFilteredFileExtension>       
+					</nonFilteredFileExtensions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

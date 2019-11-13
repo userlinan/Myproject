@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.galaxy.apus</groupId>
+    <artifactId>apus-insurance-component-modules</artifactId>
+    <version>4.0.0</version>
+  </parent>
+  <groupId>com.xuxueli</groupId>
+  <artifactId>apus-job-admin</artifactId>
+  <packaging>war</packaging>
+  <name>${project.artifactId}</name>
+  <description>A lightweight distributed task scheduling framework.</description>
+  <url>http://www.xuxueli.com/</url>
+</project>
