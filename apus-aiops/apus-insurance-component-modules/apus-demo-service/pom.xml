@@ -27,7 +27,7 @@
 			<version>1.0.0</version>
 		</dependency> -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
@@ -46,20 +46,20 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+        实现分页处理
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>
 			<version>4.1.6</version>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
+			<artifactId>spring-boot-devtools</artifactId>热部署
 			<optional>true</optional>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId><!-- spring cloud sleuth主要功能就是在分布式系统中提供追踪解决方案，并兼容了zipkin，Zipkin是一个链路跟踪工具，可以用来监控微服务集群中调用链路的通畅情况，你只需要在pom文件中引入相应的依赖即可 -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -67,7 +67,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-cache</artifactId>
+			<artifactId>spring-boot-starter-cache</artifactId><!-- 缓存提升系统响应速度 -->
 		</dependency>
 		<dependency>
 			<groupId>com.github.ben-manes.caffeine</groupId><!--启动springframework-boot时启动缓存  -->
@@ -77,5 +77,9 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+	    <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
 	</dependencies>
 </project>

@@ -2,7 +2,7 @@
 <configuration scan="false" scanPeriod="10 seconds">
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
 
-	<property name="LOG_PATH" value="/var/apus/apus-config-service/logs/"/>
+	<property name="LOG_PATH" value="/var/apus/apus-eureka-m-service/logs/"/>
 
     <appender name="INFO_FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -33,7 +33,7 @@
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-				<maxFileSize>500MB</maxFileSize>
+				<maxFileSize>50MB</maxFileSize>
 			</timeBasedFileNamingAndTriggeringPolicy>
 			<maxHistory>15</maxHistory>
 			<totalSizeCap>1GB</totalSizeCap>

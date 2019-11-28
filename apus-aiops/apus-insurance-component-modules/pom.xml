@@ -22,5 +22,7 @@
   	<module>apus-job-admin</module>
   	<module>apus-zipkin-service</module>
   	<module>apus-demo-service</module>
+  	<module>apus-ribbin-service</module>
+  	<module>apus-demo2-service</module>
   </modules>
 </project>
